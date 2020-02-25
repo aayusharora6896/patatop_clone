@@ -1,0 +1,18 @@
+/*The entire html will be covered by the body*/
+body, html{
+    /*Height of the body is equal to the height of the page */
+    height: 100%;
+    /* Margins will be zero   */
+    margin: 0px;
+}
+canvas{
+    /* Backgriund Color = Black */
+    background-color: black;
+    /* Width of the canvas = width of the webpage */
+    width: 100%;
+}
+
+p{
+    color: #000000;
+    text-align: center;
+}

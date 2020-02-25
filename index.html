@@ -1,0 +1,253 @@
+<!-- Html Skeleton -->
+<!DOCTYPE html>
+<html lang="en">
+<!-- head of the html  -->
+<head>
+	<!-- link to the stylesheet at assets/css -->
+	<link rel="stylesheet" href="assets/css/index.css">
+	<!-- Title of the Web Page -->
+	<title>Patatap Clone</title>
+	<!-- Link to the paper.js in lib folder in js folder in assets -->
+	<script type="text/javascript" src="assets/js/lib/paper-full.js"></script>
+	<!-- Link to the Howler.js CDN -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.js"></script>
+    <!-- Define inlined JavaScript/ paperScript -->
+	<script type="text/paperscript" canvas= "myCanvas">
+	// variable circle array to store all the arrays.
+		var circles = [];
+		// variable keyData that stores all the key objects with colors and howler sounds respectively.
+        var keyData = {
+	// properties for key q
+	q: {
+		sound: new Howl({
+        src: ['assets/sounds/bubbles.mp3']			//howler sound source
+		}),
+		color: '#1abc9c'							//color code definition for the circle
+	},
+	// properties for key w
+	w: {
+		sound: new Howl({
+        src: ['assets/sounds/clay.mp3']				//howler sound source
+		}),
+		color: '#2ecc71'							//color code definition for the circle
+	},
+	// properties for key e
+	e: {
+		sound: new Howl({
+        src: ['assets/sounds/confetti.mp3']			//howler sound source
+		}),
+		color: '#3498db'							//color code definition for the circle
+	},
+	// properties for key r
+	r: {
+		sound: new Howl({
+        src: ['assets/sounds/corona.mp3']			//howler sound source
+		}),
+		color: '#9b59b6'							//color code definition for the circle
+	},
+	// properties for key t
+	t: {
+		sound: new Howl({
+        src: ['assets/sounds/dotted-spiral.mp3']	//howler sound source
+		}),
+		color: '#34495e'							//color code definition for the circle
+	},
+	// properties for key y
+	y: {
+		sound: new Howl({
+        src: ['assets/sounds/flash-1.mp3']			//howler sound source
+		}),
+		color: '#16a085'							//color code definition for the circle
+	},
+	// properties for key u
+	u: {
+		sound: new Howl({
+        src: ['assets/sounds/flash-2.mp3']			//howler sound source
+		}),
+		color: '#27ae60'							//color code definition for the circle
+	},
+	// properties for key i
+	i: {
+		sound: new Howl({
+        src: ['assets/sounds/flash-3.mp3']			//howler sound source
+		}),
+		color: '#2980b9'							//color code definition for the circle
+	},
+	// properties for key o
+	o: {
+		sound: new Howl({
+        src: ['assets/sounds/glimmer.mp3']			//howler sound source
+		}),
+		color: '#8e44ad'							//color code definition for the circle
+	},
+	// properties for key p
+	p: {
+		sound: new Howl({
+        src: ['assets/sounds/moon.mp3']				//howler sound source
+		}),
+		color: '#2c3e50'							//color code definition for the circle
+	},
+	// properties for key a
+	a: {
+		sound: new Howl({
+        src: ['assets/sounds/pinwheel.mp3']			//howler sound source
+		}),
+		color: '#f1c40f'							//color code definition for the circle
+	},
+	// properties for key s
+	s: {
+		sound: new Howl({
+        src: ['assets/sounds/piston-1.mp3']			//howler sound source
+		}),
+		color: '#e67e22'							//color code definition for the circle
+	},
+	// properties for key d
+		d: {
+		sound: new Howl({
+        src: ['assets/sounds/piston-2.mp3']			//howler sound source
+		}),
+		color: '#e74c3c'							//color code definition for the circle
+	},
+	// properties for key f
+	f: {
+		sound: new Howl({
+        src: ['assets/sounds/prism-1.mp3']			//howler sound source
+		}),
+		color: '#95a5a6'							//color code definition for the circle
+	},
+	// properties for key g
+	g: {
+		sound: new Howl({
+        src: ['assets/sounds/prism-2.mp3']			//howler sound source
+		}),
+		color: '#f39c12'							//color code definition for the circle
+	},
+	// properties for key h
+	h: {
+		sound: new Howl({
+        src: ['assets/sounds/prism-3.mp3']			//howler sound source
+		}),
+		color: '#d35400'							//color code definition for the circle
+	},
+	// properties for key j
+	j: {
+		sound: new Howl({
+        src: ['assets/sounds/splits.mp3']			//howler sound source
+		}),
+		color: '#1abc9c'							//color code definition for the circle
+	},
+	// properties for key k
+	k: {
+		sound: new Howl({
+        src: ['assets/sounds/squiggle.mp3']			//howler sound source
+		}),
+		color: '#2ecc71'							//color code definition for the circle
+	},
+	// properties for key l
+	l: {
+		sound: new Howl({
+        src: ['assets/sounds/strike.mp3']			//howler sound source
+		}),
+		color: '#3498db'							//color code definition for the circle
+	},
+	// properties for key z
+	z: {
+		sound: new Howl({
+        src: ['assets/sounds/suspension.mp3']		//howler sound source
+		}),
+		color: '#9b59b6'							//color code definition for the circle
+	},
+	// properties for key x
+	x: {
+		sound: new Howl({
+        src: ['assets/sounds/timer.mp3']			//howler sound source
+		}),
+		color: '#34495e'							//color code definition for the circle
+	},
+	// properties for key c
+	c: {
+		sound: new Howl({
+        src: ['assets/sounds/ufo.mp3']				//howler sound source
+		}),
+		color: '#16a085'							//color code definition for the circle
+	},
+	// properties for key v
+	v: {
+		sound: new Howl({
+        src: ['assets/sounds/veil.mp3']				//howler sound source
+		}),
+		color: '#27ae60'							//color code definition for the circle
+	},
+	// properties for key b
+	b: {
+		sound: new Howl({
+        src: ['assets/sounds/wipe.mp3']				//howler sound source
+		}),
+		color: '#2980b9'							//color code definition for the circle
+	},
+	// properties for key n
+	n: {
+		sound: new Howl({
+        src: ['assets/sounds/zig-zag.mp3']			//howler sound source
+		}),
+		color: '#8e44ad'							//color code definition for the circle
+	},
+	// properties for key m
+	m: {
+		sound: new Howl({
+  		src: ['assets/sounds/moon.mp3']				// howler sound source
+		}),
+		color: '#2c3e50'							// color code definition for the circle
+	}
+}
+		// function declaration and definition for the event to occur when a key is pressed 
+        function onKeyDown(event) {
+			// if the key pressed during the event is found execute or else do nothing
+          if(keyData[event.key]){
+			// determining the end point of the canvas and assigning it to a variable maxPoint
+			// view.size gives us the size of the canvas with width, heigth and other properties .width/ .heigth provide the concurrent properties  
+			var maxPoint = new Point(view.size.width, view.size.height);
+			// point.randon() returns a random point with both x and y values between 0-1. 1 not included
+			// stored on a variable randomPoint
+			var randomPoint =  Point.random();
+			// multiply maxPoint and randomPoint to get a random point within the canvas and store in a point variable
+			var point = maxPoint * randomPoint;
+			// use the Path.Circle function to form a new circle store in variable newCircle
+			// Path.Circle(x-coordinate, y-coordinate, radius)
+			var newCircle = new Path.Circle(point, 200);
+			// fill color to the new circle
+			// get color according to the key pressed from the keyData object using current event key
+			newCircle.fillColor = keyData[event.key].color;
+			// extract the sound from keyData object using current event key
+			// use play() function to play the sound on key press
+			keyData[event.key].sound.play();
+			// add newCircle into the circles array
+            circles.push(newCircle);
+          }
+}
+
+// function definition and declaration when the circle is on the frame
+ function onFrame(evnet){
+	 // loop runs through each item in the circle array
+     for (var i = 0; i < circles.length; i++){
+		// animate the current displayed circle's color by increasing the hue value
+		circles[i].fillColor.hue += 1;
+		// rescale the size of the displayed circle by a factor of 10%
+		circles[i].scale(0.9);
+		// if the size of the circle is less than 1 that is it isn't visible on the screen 
+     	if(circles[i].area < 1){
+		// remove the circle from the canvas  
+		circles[i].remove(); 
+		// remove the circle from the array
+      	circles.splice(i, 1); 
+     }
+     }
+ }
+        
+</script>
+</head>
+<body>
+		<p> Click any Key to begin the magic!!</p>
+		<canvas id="myCanvas" resize></canvas>
+</body>
+</html>	
